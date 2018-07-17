@@ -22,85 +22,105 @@ class bird:
 class cow(milk_animals, animal):
     voice = "mu mu"
 
+    def __init__(self, name, weight):
+       self.name = name
+       self.weight = weight
+       all_weight[name] = weight
+
 class goat(milk_animals, animal):
     voice = "be be"
+    def __init__(self, name, weight):
+       self.name = name
+       self.weight = weight
+       all_weight[name] = weight
+
 
 class sheep(animal):
     voice = "me me"
     wools = 0
+
+    def __init__(self, name, weight):
+       self.name = name
+       self.weight = weight
+       all_weight[name] = weight
+
 
     def shear(self, wool):
         self.wools += wool
 
 class goose(bird, animal):
     voice = "ga ga ga"
+    def __init__(self, name, weight):
+       self.name = name
+       self.weight = weight
+       all_weight[name] = weight
+
 
 class chiken(bird, animal):
     voice = "ko ko ko"
+    def __init__(self, name, weight):
+       self.name = name
+       self.weight = weight
+       all_weight[name] = weight
+
 
 class duck(bird, animal):
     voice = "cria cria"
+    def __init__(self, name, weight):
+       self.name = name
+       self.weight = weight
+       all_weight[name] = weight
+
 
 # print(cow.mro())
-cow = cow()
-cow.name = "Манька"
-cow.weight = 400
+
+all_weight = {}
+
+cow = cow("Манька", 400)
 cow.feed(20)
 cow.milk(50)
 
-Sheep1 = sheep()
-Sheep1.name = "Барашек"
-Sheep1.weight = 50
+Sheep1 = sheep("Барашек", 50)
 Sheep1.shear(10)
 Sheep1.feed(10)
 
-Sheep2 = sheep()
-Sheep2.name = "Кудрявый"
-Sheep2.weight = 45
+Sheep2 = sheep("Кудрявый", 45)
 Sheep1.shear(15)
 Sheep2.feed(10)
 
-goat1 = goat()
-goat1.name = "Рога"
-goat1.weight = 40
+goat1 = goat("Рога", 40)
 goat1.milk(10)
 goat1.feed(8)
 
-goat2 = goat()
-goat2.name = "Копыта"
-goat2.weight = 42
+goat2 = goat("Копыта", 42)
 goat2.milk(10)
 goat2.feed(8)
 
-goose1 = goose()
-goose1.name = "Серый"
-goose1.weight = 5
+goose1 = goose("Серый", 5)
 goose1.collect_eggs(2)
 goose1.feed(3)
 
-goose2 = goose()
-goose2.name = "Белый"
-goose2.weight = 4
+goose2 = goose("Белый", 4)
 goose2.collect_eggs(3)
 goose2.feed(3)
 
-chiken1 = chiken()
-chiken1.name = "Кукареку"
-chiken1.weight = 3
+chiken1 = chiken("Кукареку", 3)
 chiken1.collect_eggs(5)
 chiken1.feed(3)
 
-chiken2 = chiken()
-chiken2.name = "Ко-Ко"
-chiken2.weight = 2
+chiken2 = chiken("Ко-Ко", 2)
 chiken2.collect_eggs(4)
 chiken2.feed(3)
 
-duck = duck()
-duck.name = "Кряква"
-duck.weight = 2
+duck = duck("Кряква", 2)
 duck.collect_eggs(3)
 duck.feed(3)
 
+max_weight = 0
+max_animal_name = ""
+for animal_names, animal_weight in all_weight.items():
+    if animal_weight > max_weight:
+        max_weight = animal_weight
+        max_animal_name = animal_names
 
-print(Sheep2.weight)
+print("{} {}".format(max_animal_name, max_weight))
