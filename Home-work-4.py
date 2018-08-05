@@ -17,7 +17,7 @@ class MilkAnimals:
     def milk(self, value):
         self.milk_liter += value
 
-class Bird:
+class Bird(Animal):
     eggs = 0
 
     def collect_eggs(self, egg):
@@ -36,13 +36,13 @@ class Sheep(Animal):
     def shear(self, wool):
         self.wools += wool
 
-class Goose(Bird, Animal):
+class Goose(Bird):
     voice = "ga ga ga"
 
-class Chiken(Bird, Animal):
+class Chiken(Bird):
     voice = "ko ko ko"
 
-class Duck(Bird, Animal):
+class Duck(Bird):
     voice = "cria cria"
 
 
